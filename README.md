@@ -33,7 +33,6 @@
                   Console.WriteLine("Test");
               }
           }
-}      
   
 #       ServiceConfiguration.xml
 You can change WorkInterval in ServiceConfiguration.xml.
