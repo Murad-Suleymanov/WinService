@@ -12,22 +12,22 @@
             
 #     Configuration with Ninject
 
-using System;
-using Ninject;
-using Ninject.Modules;
-using Ninject.Parameters;
-using WinService.Logic;
+//using System;
+//using Ninject;
+//using Ninject.Modules;
+//using Ninject.Parameters;
+//using WinService.Logic;
 
-namespace WinService.NinjectModules
-{
-    public class NinjectDependencyResolver : NinjectModule
-    {
-        public override void Load()
-        {
-            Bind<TestClass>().ToSelf();
-
-            Bind<Action>().ToMethod(ctx=>ctx.Kernel.Get<TestClass>().Print);
-            Bind<IWindowsServiceTrigger>().To<WindowsServiceTrigger>()
+//namespace WinService.NinjectModules
+//{
+//   public class NinjectDependencyResolver : NinjectModule
+//    {
+//        public override void Load()
+//        {
+//            Bind<TestClass>().ToSelf();
+//
+//            Bind<Action>().ToMethod(ctx=>ctx.Kernel.Get<TestClass>().Print);
+//            Bind<IWindowsServiceTrigger>().To<WindowsServiceTrigger>()
                 .WithConstructorArgument("serviceName", "TestService")
                 .WithConstructorArgument("logSourceName", "TestServiceSource")
                 .WithConstructorArgument("logName", "TestServiceLog")
@@ -45,6 +45,7 @@ namespace WinService.NinjectModules
   
 #       ServiceConfiguration.xml
 
+/*
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceStartHour>11</ServiceStartHour>
@@ -54,6 +55,7 @@ namespace WinService.NinjectModules
   <AttemptCount>5</AttemptCount>
   <CapacityOfPacket>100</CapacityOfPacket>
 </ServiceConfiguration>
+*/
 
 You can change service configuration property.
 
@@ -61,7 +63,8 @@ ServiceConfiguration.xml located in ExecutingAssembly()\\Config folder.
 
 #     Install console projects as Windows Service
 1)Open cmd
-  User>"C:\Windows\Microsoft.NET\Framework\v4.0.30319\installutil.exe" /ServiceName=MyConsoleServiceName /DisplayName="MyConsoleServiceName" "...\myConsoleService.exe" ---- Of course can be different version of installutil.exe 
+  User>"C:\Windows\Microsoft.NET\Framework\v4.0.30319\installutil.exe" /ServiceName=MyConsoleServiceName /DisplayName="MyConsoleServiceName" "...\myConsoleService.exe" 
+  ---- Of course can be different version of installutil.exe 
   
 
 #
