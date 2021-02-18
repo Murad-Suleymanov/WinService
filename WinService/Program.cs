@@ -110,7 +110,7 @@ namespace WinService
                     ErrorMessage = ex.GetFullErrorMessage()
                 };
 
-                logger.Log(exDetail);
+                logger.Log(exDetail);//
             }
         }
 
